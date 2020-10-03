@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+<!--    <color name="colorPrimary">#6200EE</color>-->
+<!--    <color name="colorPrimaryDark">#3700B3</color>-->
+<!--    <color name="colorAccent">#03DAC5</color>-->
+
+    <color name="colorPrimary">#AB0313</color>
+    <color name="colorPrimaryDark">#a10211</color>
+    <color name="colorAccent">#da0519</color>
+
+    <color name="colorWhite">#FFFFFF</color>
+    <color name="colorGray">#E5E5E5</color>
+    <color name="colorText">#8A8A8A</color>
+
+    <color name="backgroundcolor">#fcfcfc</color>
+    <color name="lightgray">#ededed</color>
+    <color name="deeppurple">#7c4dff</color>
+    <color name="yello">#ffb300</color>
+    <color name="green">#00bfa5</color>
+    <color name="darkblue">#23283a</color>
+    <color name="testcolorblue">#152b38</color>
+    <color name="pink">#fe104d</color>
+
+    <color name="solidCircle">#acaaaa</color>
+    <color name="circleBorder">#a9a9a9</color>
+    <color name="headings">#3797CF</color>
+    <color name="grey">#E5E5E5</color>
+
+    <color name="black_overlay">#000000</color>
+
+    <!-- Screens background color-->
+    <color name="bg_screen1">#AB0313</color>
+    <color name="bg_screen2">#AB0313</color>
+    <color name="bg_screen3">#AB0313</color>
+    <color name="bg_screen4">#AB0313</color>
+    <color name="bg_screen5">#AB0313</color>
+
+    <!-- dots inactive colors -->
+    <color name="dot_dark_screen1">#FFFFF0</color>
+    <color name="dot_dark_screen2">#FFFFF0</color>
+    <color name="dot_dark_screen3">#FFFFF0</color>
+    <color name="dot_dark_screen4">#FFFFF0</color>
+    <color name="dot_dark_screen5">#FFFFF0</color>
+
+    <color name="biru_muda">#08caf1</color>
+    <color name="biru_butek">#0389a4</color>
+    <color name="hijau_muda">#0eff7f</color>
+    <color name="hijau_butek">#00c15a</color>
+    <color name="kuning_muda">#ffff00</color>
+    <color name="kuning_butek">#a6a600</color>
+    <color name="ungu_muda">#bc12ff</color>
+    <color name="ungu_butek">#73028c</color>
+    <color name="merah_muda">#ff00bb</color>
+    <color name="merah_butek">#FFFFF0</color>
+
+    <!-- dots active colors -->
+    <color name="dot_light_screen1">#A9A9A9</color>
+    <color name="dot_light_screen2">#A9A9A9</color>
+    <color name="dot_light_screen3">#A9A9A9</color>
+    <color name="dot_light_screen4">#A9A9A9</color>
+    <color name="dot_light_screen5">#A9A9A9</color>
+
+    <array name="array_dot_active">
+        <item>@color/dot_light_screen1</item>
+        <item>@color/dot_light_screen2</item>
+        <item>@color/dot_light_screen3</item>
+        <item>@color/dot_light_screen4</item>
+        <item>@color/dot_light_screen5</item>
+    </array>
+
+    <array name="array_dot_inactive">
+        <item>@color/dot_dark_screen1</item>
+        <item>@color/dot_dark_screen2</item>
+        <item>@color/dot_dark_screen3</item>
+        <item>@color/dot_dark_screen4</item>
+        <item>@color/dot_dark_screen5</item>
+    </array>
+</resources>

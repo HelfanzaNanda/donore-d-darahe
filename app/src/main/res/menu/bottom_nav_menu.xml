@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/action_home"
+        android:enabled="true"
+        android:icon="@drawable/ic_home_white"
+        android:title="Home"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/action_jadwal"
+        android:enabled="true"
+        android:icon="@drawable/ic_jadwal_white"
+        android:title="Jadwal"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/action_donor"
+        android:enabled="true"
+        android:icon="@drawable/ic_donor_white"
+        android:title="Data Donor"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/action_stock"
+        android:enabled="true"
+        android:icon="@drawable/ic_stock_white"
+        android:title="Stock Darah"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/action_profile"
+        android:enabled="true"
+        android:icon="@drawable/ic_profile_white"
+        android:title="Profile"
+        app:showAsAction="ifRoom" />
+</menu>

@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="120dp"
+    android:id="@+id/row_container2"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="?android:attr/selectableItemBackground">
+
+    <TextView
+        android:id="@+id/gol_rhesus"
+        android:layout_height="40dp"
+        android:layout_width="65dp"
+        android:text="AB+"
+        android:textColor="@color/darkblue"
+        android:textStyle="bold"
+        android:layout_alignParentRight="true"
+        android:textSize="26dp"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="12dp"/>
+
+    <LinearLayout
+        android:id="@+id/layoutName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="80dp"
+        android:layout_marginLeft="10dp"
+        android:weightSum="2"
+        android:gravity="top"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_weight="1"
+            android:id="@+id/nama"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="10dp"
+            android:text="Nama Tempat"
+            android:fontFamily="sans-serif-light"
+            android:textColor="@android:color/black"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignStart="@+id/layoutName"
+        android:background="#d4d4d4"
+        android:layout_alignLeft="@+id/layoutName" />
+
+    <LinearLayout
+        android:id="@+id/LayoutType"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/layoutName"
+        android:layout_alignStart="@+id/layoutName"
+        android:layout_marginRight="80dp"
+        android:layout_below="@+id/layoutName"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/jenis_kelamin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Laki-laki"
+            android:textStyle="bold"
+            android:textSize="16sp" />
+        <TextView
+            android:id="@+id/alamat"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:maxLines="3"
+            android:text="Jl Abdul Ghofur"
+            android:textSize="15sp" />
+    </LinearLayout>
+
+</RelativeLayout>

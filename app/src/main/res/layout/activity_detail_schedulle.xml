@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".ui.detail_schedulle.DetailSchedulleActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/foto"
+            android:background="#f4f4f4"
+            android:src="@drawable/image_not_found"
+            android:layout_width="match_parent"
+            android:layout_height="220dp" />
+
+        <TextView
+            android:id="@+id/nama_tempat"
+            android:layout_below="@+id/foto"
+            android:text="Balai Desa Talang"
+            android:layout_marginStart="15dp"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:textColor="#000000"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <LinearLayout
+            android:id="@+id/LayoutType1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/nama_tempat"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/hari_tgl"
+                android:layout_marginTop="15dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:layout_marginStart="15dp"
+                    android:src="@drawable/ic_jadwal_black"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <TextView
+                    android:id="@+id/hari"
+                    android:paddingTop="6dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingStart="10dp"
+                    android:layout_marginEnd="4dp"
+                    android:layout_weight="1"
+                    android:gravity="right|top"
+                    android:text="Senin"
+                    android:textSize="16sp"
+                    android:textColor="@color/black_overlay"
+                    tools:ignore="RtlSymmetry" />
+                <TextView
+                    android:id="@+id/batas"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginEnd="4dp"
+                    android:gravity="right|top"
+                    android:text=","
+                    android:textSize="16sp"
+                    android:textColor="@color/black_overlay" />
+                <TextView
+                    android:id="@+id/tanggal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="16dp"
+                    android:layout_weight="1"
+                    android:gravity="right|top"
+                    android:text="18-10-2018"
+                    android:textSize="16sp"
+                    android:textColor="@color/black_overlay" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/jam_mulai_selesai"
+                android:layout_marginTop="15dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:layout_marginStart="15dp"
+                    android:src="@drawable/ic_jam_black"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <TextView
+                    android:id="@+id/jam_mulai"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingStart="10dp"
+                    android:layout_marginEnd="4dp"
+                    android:layout_weight="1"
+                    android:gravity="right|top"
+                    android:text="10.00 AM"
+                    android:textSize="16sp"
+                    android:textColor="@color/black_overlay"
+                    tools:ignore="RtlSymmetry" />
+                <TextView
+                    android:id="@+id/batasa"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignTop="@+id/gambar"
+                    android:layout_weight="1"
+                    android:layout_marginEnd="4dp"
+                    android:gravity="right|top"
+                    android:text="-"
+                    android:textSize="16sp"
+                    android:textColor="@color/black_overlay" />
+                <TextView
+                    android:id="@+id/jam_selesai"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignTop="@+id/gambar"
+                    android:paddingTop="6dp"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginRight="16dp"
+                    android:layout_weight="1"
+                    android:gravity="right|top"
+                    android:text="11.00 AM"
+                    android:textSize="16sp"
+                    android:textColor="@color/black_overlay" />
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/lalamat"
+                android:layout_marginTop="15dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:layout_marginLeft="15dp"
+                    android:src="@drawable/ic_lokasi_black"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <TextView
+                    android:id="@+id/alamat"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="10dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignTop="@+id/gambar"
+                    android:layout_marginEnd="4dp"
+                    android:layout_weight="1"
+                    android:gravity="right|top"
+                    android:text="Jl Raya Tarub No 11, Kecamatan Tarub"
+                    android:textSize="16sp"
+                    android:textColor="@color/black_overlay" />
+            </LinearLayout>
+        </LinearLayout>
+    </RelativeLayout>
+
+</androidx.core.widget.NestedScrollView>

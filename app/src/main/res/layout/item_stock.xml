@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="100dp"
+    android:id="@+id/row_container4"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="?android:attr/selectableItemBackground">
+
+    <TextView
+        android:id="@+id/gol_dar"
+        android:layout_height="70dp"
+        android:layout_width="70dp"
+        android:text="A"
+        android:textColor="@color/darkblue"
+        android:padding="15dp"
+        android:textStyle="bold"
+        android:textSize="30dp"
+        android:layout_centerVertical="true"/>
+
+    <TextView
+        android:id="@+id/rhesus"
+        android:layout_height="70dp"
+        android:layout_width="70dp"
+        android:text="+"
+        android:textColor="@color/darkblue"
+        android:padding="15dp"
+        android:textStyle="bold"
+        android:textSize="30dp"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="20dp"/>
+
+    <LinearLayout
+        android:id="@+id/layoutName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="80dp"
+        android:layout_marginStart="80dp"
+        android:weightSum="2"
+        android:gravity="top"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_weight="1"
+            android:id="@+id/jenis_tranfusi"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="10dp"
+            android:text="TC Apheresis"
+            android:fontFamily="sans-serif-light"
+            android:textColor="@android:color/black"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignStart="@+id/layoutName"
+        android:background="#d4d4d4"
+        android:layout_alignLeft="@+id/layoutName" />
+
+    <LinearLayout
+        android:id="@+id/LayoutType"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/layoutName"
+        android:layout_alignStart="@+id/layoutName"
+        android:layout_below="@+id/layoutName"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_marginTop="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/tv_stock"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignTop="@+id/gambar"
+                android:layout_marginEnd="4dp"
+                android:layout_weight="1"
+                android:gravity="right|top"
+                android:text="Stock : "
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:textColor="@color/black_overlay" />
+            <TextView
+                android:id="@+id/qty"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@+id/gambar"
+                android:layout_weight="1"
+                android:layout_marginEnd="4dp"
+                android:gravity="right|top"
+                android:text="10"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:textColor="@color/colorAccent" />
+            <TextView
+                android:id="@+id/keterangan"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignTop="@+id/gambar"
+                android:layout_marginEnd="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_weight="1"
+                android:gravity="right|top"
+                android:text="Kantong"
+                android:textSize="10sp"
+                android:textColor="@color/black_overlay" />
+        </LinearLayout>
+    </LinearLayout>
+
+</RelativeLayout>
