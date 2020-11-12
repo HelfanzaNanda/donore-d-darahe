@@ -11,7 +11,7 @@ class LoginViewModel (private val userRepository: UserRepository) : ViewModel(){
     private val state : SingleLiveEvent<LoginState> = SingleLiveEvent()
     private fun isLoading(b : Boolean) { state.value =  LoginState.Loading(b)}
     private fun toast(m : String) { state.value = LoginState.ShowToast(m) }
-    private fun success(t : String){ state.value = LoginState.Success(t) }
+    private fun success(t : String, r : String){ state.value = LoginState.Success(t, r) }
 
     fun validate(email: String, password: String) : Boolean {
         state.value = LoginState.Reset
@@ -42,7 +42,7 @@ class LoginViewModel (private val userRepository: UserRepository) : ViewModel(){
         userRepository.login(email, password, object : SingleResponse<User> {
             override fun onSuccess(data: User?) {
                 isLoading(false)
-                data?.let { success(it.token!!) }
+                data?.let { success(it.token!!, it.role!!) }
             }
 
             override fun onFailure(err: Error?) {
@@ -58,7 +58,7 @@ class LoginViewModel (private val userRepository: UserRepository) : ViewModel(){
 sealed class LoginState{
     data class Loading(var state : Boolean = false) : LoginState()
     data class ShowToast(var message : String) : LoginState()
-    data class Success(var token : String) : LoginState()
+    data class Success(var token : String, var role : String) : LoginState()
     object Reset : LoginState()
     data class Validate(
         var email: String? = null,

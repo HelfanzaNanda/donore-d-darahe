@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.elf.donordarah">
 
     <uses-permission android:name="android.permission.INTERNET" />
@@ -8,11 +9,15 @@
         android:name=".MyApp"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
+        android:requestLegacyExternalStorage="true"
+        android:usesCleartextTraffic="true"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
-        <activity android:name=".ui.add_edit_submission.AddEditSubmissionActivity"></activity>
+        android:theme="@style/AppTheme"
+        tools:targetApi="q">
+        <activity android:name=".ui.add_edit_donor.AddEditDonorActivity"/>
+        <activity android:name=".ui.add_edit_submission.AddEditSubmissionActivity" />
         <activity android:name=".ui.intro.IntroActivity" />
         <activity android:name=".ui.splash.SplashActivity" />
         <activity android:name=".ui.information.InformationActivity" />
@@ -21,15 +26,12 @@
         <activity android:name=".ui.login.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity android:name=".ui.detail_stock.DetailStockActivity" />
-        <activity android:name=".ui.detail_submission.DetailSubmissionActivity" />
         <activity android:name=".ui.detail_schedulle.DetailSchedulleActivity" />
         <activity android:name=".ui.detail_information.DetailInformationActivity" />
-        <activity android:name=".ui.detail_donor.DetailDonorActivity" />
         <activity android:name=".ui.detail_news.DetailNewsActivity" />
         <activity android:name=".ui.news.NewsActivity" />
         <activity android:name=".ui.help.HelpActivity" />

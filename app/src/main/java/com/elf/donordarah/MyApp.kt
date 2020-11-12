@@ -2,10 +2,12 @@ package com.elf.donordarah
 
 import android.app.Application
 import com.elf.donordarah.repositories.*
+import com.elf.donordarah.ui.add_edit_donor.AddEditDonorViewModel
 import com.elf.donordarah.ui.add_edit_submission.AddEditSubmissionViewModel
 import com.elf.donordarah.ui.information.InformationViewModel
 import com.elf.donordarah.ui.login.LoginViewModel
 import com.elf.donordarah.ui.main.donor.DonorViewModel
+import com.elf.donordarah.ui.main.profile.ProfileViewModel
 import com.elf.donordarah.ui.main.schedulle.SchedulleViewModel
 import com.elf.donordarah.ui.main.stock.StockViewModel
 import com.elf.donordarah.ui.news.NewsViewModel
@@ -43,7 +45,7 @@ val repositoryModules = module {
     factory { StockRepository(get()) }
     factory { UserRepository(get()) }
     factory { SubmissionRepository(get()) }
-    factory { AddEditSubmissionViewModel(get()) }
+    factory { DonorRepository(get()) }
 }
 
 val viewModelModules = module {
@@ -54,5 +56,9 @@ val viewModelModules = module {
     viewModel { DonorViewModel(get()) }
     viewModel { SchedulleViewModel(get()) }
     viewModel { StockViewModel(get()) }
+    viewModel { ProfileViewModel(get()) }
     viewModel { SubmissionViewModel(get()) }
+    viewModel { AddEditSubmissionViewModel(get()) }
+    viewModel { AddEditDonorViewModel(get()) }
+
 }

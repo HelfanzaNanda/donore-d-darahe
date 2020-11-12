@@ -37,63 +37,100 @@
                 android:gravity="center"
                 android:layout_marginBottom="20dp"/>
 
-            <com.google.android.material.textfield.TextInputLayout
-                app:errorEnabled="true"
-                android:id="@+id/layout_name"
+            <com.google.android.material.card.MaterialCardView
+                app:cardCornerRadius="8dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
-                <EditText
-                    android:id="@+id/nama"
-                    android:hint="Name"
-                    android:inputType="textPersonName"
-                    android:textColor="@color/colorText"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
-            </com.google.android.material.textfield.TextInputLayout>
 
-            <com.google.android.material.textfield.TextInputLayout
-                app:errorEnabled="true"
-                android:id="@+id/layout_email"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-                <EditText
-                    android:id="@+id/email"
-                    android:hint="Email"
-                    android:inputType="textEmailAddress"
-                    android:textColor="@color/colorText"
+                <LinearLayout
+                    android:layout_margin="@dimen/h8"
+                    android:orientation="vertical"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
-            </com.google.android.material.textfield.TextInputLayout>
+                    android:layout_height="wrap_content">
 
-            <com.google.android.material.textfield.TextInputLayout
-                app:errorEnabled="true"
-                android:id="@+id/layout_pass"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:passwordToggleEnabled="true">
-                <EditText
-                    android:id="@+id/password"
-                    android:hint="Password"
-                    android:inputType="textPassword"
-                    android:textColor="@color/colorText"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
-            </com.google.android.material.textfield.TextInputLayout>
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+                        app:errorEnabled="true"
+                        android:id="@+id/layout_name"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <EditText
+                            android:id="@+id/nama"
+                            android:hint="Name"
+                            android:inputType="textPersonName"
+                            android:textColor="@color/colorText"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" />
+                    </com.google.android.material.textfield.TextInputLayout>
 
-            <com.google.android.material.textfield.TextInputLayout
-                app:errorEnabled="true"
-                android:id="@+id/layout_confirm_pass"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:passwordToggleEnabled="true">
-                <EditText
-                    android:id="@+id/c_password"
-                    android:hint="Confirm Password"
-                    android:inputType="textPassword"
-                    android:textColor="@color/colorText"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
-            </com.google.android.material.textfield.TextInputLayout>
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+                        app:errorEnabled="true"
+                        android:id="@+id/layout_email"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <EditText
+                            android:id="@+id/email"
+                            android:hint="Email"
+                            android:inputType="textEmailAddress"
+                            android:textColor="@color/colorText"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+                        app:errorEnabled="true"
+                        android:id="@+id/layout_pass"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:passwordToggleEnabled="true">
+                        <EditText
+                            android:id="@+id/password"
+                            android:hint="Password"
+                            android:inputType="textPassword"
+                            android:textColor="@color/colorText"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+                        app:errorEnabled="true"
+                        android:id="@+id/layout_confirm_pass"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:passwordToggleEnabled="true">
+                        <EditText
+                            android:id="@+id/c_password"
+                            android:hint="Confirm Password"
+                            android:inputType="textPassword"
+                            android:textColor="@color/colorText"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/jenis_kelamin"
+                            android:text="Role"
+                            android:layout_marginStart="4dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+                        <Spinner
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/spinner_role"
+                            android:entries="@array/list_role"/>
+
+                    </LinearLayout>
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
 
             <ProgressBar
                 android:layout_width="match_parent"
@@ -103,13 +140,13 @@
                 android:visibility="gone"/>
 
             <Button
+                android:backgroundTint="@android:color/white"
                 android:id="@+id/btn_regist"
-                android:backgroundTint="@color/colorPrimaryDark"
                 android:layout_width="match_parent"
                 android:layout_height="55dp"
                 android:text="Register"
                 android:layout_marginTop="30dp"
-                android:textColor="@color/colorGray"/>
+                android:textColor="@color/colorPrimaryDark"/>
 
             <TextView
                 android:id="@+id/to_login"

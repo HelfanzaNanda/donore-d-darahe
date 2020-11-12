@@ -5,6 +5,8 @@ import android.content.Context.MODE_PRIVATE
 import android.os.Build
 import android.text.TextUtils
 import androidx.annotation.RequiresApi
+import okhttp3.MultipartBody
+import okhttp3.RequestBody
 import java.text.NumberFormat
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
@@ -15,6 +17,20 @@ class Constants {
     companion object{
 
         const val ENDPOINT = "https://cari-donor-darah.herokuapp.com/"
+
+        fun getRole(c : Context) : String {
+            val s = c.getSharedPreferences("USER", MODE_PRIVATE)
+            return s?.getString("ROLE", "UNDEFINED")!!
+        }
+
+        fun setRole(context: Context, role: String){
+            val pref = context.getSharedPreferences("USER", MODE_PRIVATE)
+            pref.edit().apply {
+                putString("ROLE", role)
+                apply()
+            }
+        }
+
         fun getToken(c : Context) : String {
             val s = c.getSharedPreferences("USER", MODE_PRIVATE)
             val token = s?.getString("TOKEN", "UNDEFINED")
@@ -104,5 +120,8 @@ class Constants {
             }
             return "$year-$month-$day $hour:$minute"
         }
+
+        fun createPartFromString(string: String): RequestBody = RequestBody.create(MultipartBody.FORM, string)
     }
+
 }

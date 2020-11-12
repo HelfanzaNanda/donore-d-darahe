@@ -17,7 +17,6 @@
             android:layout_marginTop="30dp"/>
 
         <Button
-            style="@style/Base.Widget.AppCompat.ActionButton.CloseMode"
             android:text="Edit Foto"
             android:id="@+id/btn_foto"
             android:layout_below="@+id/profile_image"
@@ -34,6 +33,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
+
             <ImageView
                 android:src="@drawable/ic_profile_black"
                 android:layout_width="70dp"
@@ -43,7 +43,7 @@
                 android:id="@+id/nama"
                 android:hint="Nama"
                 android:inputType="textPersonName"
-                android:layout_marginLeft="10dp"
+                android:layout_marginStart="10dp"
                 android:layout_weight="1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
@@ -63,46 +63,48 @@
                 android:layout_width="70dp"
                 android:layout_height="50dp"
                 android:layout_weight="1"/>
+
             <EditText
+                android:enabled="false"
                 android:hint="Email"
                 android:inputType="textEmailAddress"
-                android:layout_marginLeft="10dp"
+                android:layout_marginStart="10dp"
                 android:id="@+id/email"
                 android:layout_weight="1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
         </LinearLayout>
 
-        <LinearLayout
-            android:id="@+id/layout_phone"
-            android:layout_marginRight="30dp"
-            android:layout_marginLeft="30dp"
-            android:layout_below="@+id/layout_email"
-            android:weightSum="2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-            <ImageView
-                android:src="@drawable/ic_phone_black"
-                android:layout_width="70dp"
-                android:layout_height="50dp"
-                android:layout_weight="1"/>
-            <EditText
-                android:hint="Phone"
-                android:inputType="phone"
-                android:layout_marginLeft="10dp"
-                android:id="@+id/phone"
-                android:layout_weight="1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-        </LinearLayout>
+<!--        <LinearLayout-->
+<!--            android:id="@+id/layout_phone"-->
+<!--            android:layout_marginRight="30dp"-->
+<!--            android:layout_marginLeft="30dp"-->
+<!--            android:layout_below="@+id/layout_email"-->
+<!--            android:weightSum="2"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:orientation="horizontal">-->
+<!--            <ImageView-->
+<!--                android:src="@drawable/ic_phone_black"-->
+<!--                android:layout_width="70dp"-->
+<!--                android:layout_height="50dp"-->
+<!--                android:layout_weight="1"/>-->
+<!--            <EditText-->
+<!--                android:hint="Phone"-->
+<!--                android:inputType="phone"-->
+<!--                android:layout_marginStart="10dp"-->
+<!--                android:id="@+id/phone"-->
+<!--                android:layout_weight="1"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content" />-->
+<!--        </LinearLayout>-->
 
 
         <LinearLayout
             android:id="@+id/layout_role"
             android:layout_marginRight="30dp"
             android:layout_marginLeft="30dp"
-            android:layout_below="@+id/layout_phone"
+            android:layout_below="@+id/layout_email"
             android:weightSum="2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -113,16 +115,32 @@
                 android:layout_height="50dp"
                 android:layout_weight="1"/>
             <EditText
+                android:enabled="false"
                 android:hint="Role"
                 android:inputType="text"
-                android:layout_marginLeft="10dp"
+                android:layout_marginStart="10dp"
                 android:id="@+id/role"
                 android:layout_weight="1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
         </LinearLayout>
 
+        <com.google.android.material.button.MaterialButton
+            android:layout_margin="@dimen/fab_margin"
+            android:layout_alignParentBottom="true"
+            android:id="@+id/btn_logout"
+            android:text="logout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <ProgressBar
+            android:layout_centerInParent="true"
+            android:id="@+id/loading"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
     </RelativeLayout>
+
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab_simpanProfile"
         android:layout_width="wrap_content"

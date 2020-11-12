@@ -3,4 +3,47 @@
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
+
+    <string-array name="list_rhesus">
+        <item>tidak tahu</item>
+        <item>+</item>
+        <item>-</item>
+    </string-array>
+
+    <string-array name="jenis_kelamin">
+        <item>Laki-laki</item>
+        <item>Perempuan</item>
+    </string-array>
+
+    <string-array name="list_pekerjaan">
+        <item>BUMN</item>
+        <item>Mahasiswa</item>
+        <item>Pedagang</item>
+        <item>Pegawai Negeri</item>
+        <item>Pegawai Swasta</item>
+        <item>Pelajar</item>
+        <item>Petani/Buruh</item>
+        <item>POLRI</item>
+        <item>TNI</item>
+        <item>Wiraswasta</item>
+        <item>Lain-lain</item>
+    </string-array>
+
+    <string-array name="list_status">
+        <item>Menikah</item>
+        <item>Belum Menikah</item>
+    </string-array>
+
+    <string-array name="list_role">
+        <item>pendonor</item>
+        <item>instansi</item>
+    </string-array>
+
+    <string-array name="list_golongan">
+        <item>tidak tahu</item>
+        <item>A</item>
+        <item>B</item>
+        <item>O</item>
+        <item>AB</item>
+    </string-array>
 </resources>

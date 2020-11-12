@@ -40,19 +40,21 @@ class LoginActivity : AppCompatActivity() {
             when(it){
                 is LoginState.Loading -> handleLoading(it.state)
                 is LoginState.ShowToast -> toast(it.message)
-                is LoginState.Success -> handleSuccess(it.token)
+                is LoginState.Success -> handleSuccess(it.token, it.role)
                 is LoginState.Reset -> handleReset()
                 is LoginState.Validate -> handleValidate(it)
             }
         }
     }
 
-    private fun handleSuccess(token: String) {
+    private fun handleSuccess(token: String, role : String) {
         Constants.setToken(this@LoginActivity, "Bearer $token")
+        Constants.setRole(this@LoginActivity, role)
         startActivity(Intent(this@LoginActivity, MainActivity::class.java).apply {
             flags = Intent.FLAG_ACTIVITY_CLEAR_TASK
             flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
         }).also { finish() }
+
     }
 
     private fun handleLoading(b: Boolean) {

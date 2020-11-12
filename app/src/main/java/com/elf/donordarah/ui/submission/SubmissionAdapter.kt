@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.elf.donordarah.R
 import com.elf.donordarah.models.Submission
-import com.elf.donordarah.ui.detail_submission.DetailSubmissionActivity
+import com.elf.donordarah.ui.add_edit_submission.AddEditSubmissionActivity
 import kotlinx.android.synthetic.main.item_submission.view.*
 
 class SubmissionAdapter (private val submission : MutableList<Submission>, private var context: Context)
@@ -22,8 +22,9 @@ class SubmissionAdapter (private val submission : MutableList<Submission>, priva
                 jam_mulai.text = submission.start_time
                 jam_selesai.text = submission.end_time
                 setOnClickListener {
-                    context.startActivity(Intent(context, DetailSubmissionActivity::class.java).apply {
+                    context.startActivity(Intent(context, AddEditSubmissionActivity::class.java).apply {
                         putExtra("SUBMISSION", submission)
+                        putExtra("UPDATE", true)
                     })
                 }
 

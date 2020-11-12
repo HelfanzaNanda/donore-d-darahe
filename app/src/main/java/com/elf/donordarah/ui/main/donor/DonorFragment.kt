@@ -1,5 +1,6 @@
 package com.elf.donordarah.ui.main.donor
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
@@ -7,6 +8,7 @@ import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.elf.donordarah.R
 import com.elf.donordarah.models.Pendonor
+import com.elf.donordarah.ui.add_edit_donor.AddEditDonorActivity
 import com.elf.donordarah.utils.Constants
 import com.elf.donordarah.utils.ext.gone
 import com.elf.donordarah.utils.ext.toast
@@ -22,6 +24,13 @@ class DonorFragment : Fragment(R.layout.fragment_donor){
         super.onViewCreated(view, savedInstanceState)
         setUpRecyclerView()
         observe()
+        gotoDonor()
+    }
+
+    private fun gotoDonor() {
+        requireView().fab_tambah.setOnClickListener {
+            startActivity(Intent(requireActivity(), AddEditDonorActivity::class.java))
+        }
     }
 
     private fun setUpRecyclerView() {
@@ -43,8 +52,8 @@ class DonorFragment : Fragment(R.layout.fragment_donor){
 
     private fun handleDonors(list: List<Pendonor>?) {
         list?.let {
-            requireView().recycler_view.adapter?.let {adapter ->
-                if (adapter is DonorAdapter) adapter.changeList(it)
+            requireView().recycler_view.adapter?.let { a ->
+                if (a is DonorAdapter) a.changeList(it)
             }
         }
     }
@@ -59,6 +68,7 @@ class DonorFragment : Fragment(R.layout.fragment_donor){
     }
 
     private fun handleLoading(b: Boolean) {
+        requireView().fab_tambah.isEnabled = !b
         if (b) requireView().loading.visible() else requireView().loading.gone()
     }
 

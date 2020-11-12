@@ -61,7 +61,7 @@ class RegisterActivity : AppCompatActivity() {
         setErrorPass(null)
     }
 
-    private fun handleSuccess() = alertRegister("berhasil registere, silahkan login")
+    private fun handleSuccess() = alertRegister("berhasil register, silahkan cek email untuk verifikasi")
     private fun setErrorName(err : String?){ layout_name.error = err }
     private fun setErrorEmail(err : String?){ layout_email.error = err }
     private fun setErrorPass(err : String?){ layout_pass.error = err }
@@ -70,9 +70,9 @@ class RegisterActivity : AppCompatActivity() {
         AlertDialog.Builder(this).apply {
             setMessage(m)
             setPositiveButton("ya"){dialogInterface, i ->
+                dialogInterface.dismiss()
                 goToLogin()
                 finish()
-                dialogInterface.dismiss()
             }
         }.show()
     }
@@ -82,9 +82,9 @@ class RegisterActivity : AppCompatActivity() {
             val name = nama.text.toString().trim()
             val email = email.text.toString().trim()
             val pass = password.text.toString().trim()
-            val role = "a"
+            val role = spinner_role.selectedItem
             if (registerViewModel.validate(name, email, pass)){
-                registerViewModel.register(name, email, pass, role)
+                registerViewModel.register(name, email, pass, role.toString())
             }
         }
     }

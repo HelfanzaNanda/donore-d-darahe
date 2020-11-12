@@ -8,6 +8,9 @@ import com.elf.donordarah.R
 import com.elf.donordarah.ui.information.InformationActivity
 import com.elf.donordarah.ui.news.NewsActivity
 import com.elf.donordarah.ui.submission.SubmissionActivity
+import com.elf.donordarah.utils.Constants
+import com.elf.donordarah.utils.ext.alertBasic
+import com.elf.donordarah.utils.ext.enabled
 import kotlinx.android.synthetic.main.fragment_home.view.*
 
 class HomeFragment : Fragment(R.layout.fragment_home){
@@ -15,12 +18,12 @@ class HomeFragment : Fragment(R.layout.fragment_home){
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         goToActivity()
+        checkRole()
     }
 
     private fun goToActivity(){
         goToNews()
         goToInformation()
-        goToSubmission()
     }
 
     private fun goToNews() {
@@ -40,4 +43,17 @@ class HomeFragment : Fragment(R.layout.fragment_home){
             startActivity(Intent(requireActivity(), SubmissionActivity::class.java))
         }
     }
+
+    private fun checkRole(){
+        if (role() == "Pendonor"){
+            requireView().link_pengajuan.setOnClickListener {
+                requireActivity().alertBasic("anda bukan instansi")
+            }
+        }else{
+            requireView().link_pengajuan.enabled()
+            goToSubmission()
+        }
+    }
+
+    private fun role() = Constants.getRole(requireActivity())
 }
