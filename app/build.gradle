@@ -66,4 +66,8 @@ dependencies {
     implementation 'de.hdodenhof:circleimageview:3.1.0'
     implementation  'com.fxn769:pix:1.5.4'
     implementation 'com.github.PuffoCyano:Range-Time-Picker-Dialog:v1.8'
+
+    //chart
+
+    implementation 'com.github.AnyChart:AnyChart-Android:1.1.2'
 }

@@ -24,11 +24,19 @@
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"/>
 
+        <Button
+            android:text="open grafik anda"
+            android:id="@+id/btn_to_chart"
+            android:layout_below="@id/btn_foto"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"/>
+
         <LinearLayout
             android:id="@+id/layout_text"
             android:layout_marginRight="30dp"
             android:layout_marginLeft="30dp"
-            android:layout_below="@+id/btn_foto"
+            android:layout_below="@+id/btn_to_chart"
             android:weightSum="2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

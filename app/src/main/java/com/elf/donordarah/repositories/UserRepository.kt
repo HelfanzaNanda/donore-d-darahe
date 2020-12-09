@@ -1,6 +1,7 @@
 package com.elf.donordarah.repositories
 
 import android.media.Image
+import com.elf.donordarah.models.Chart
 import com.elf.donordarah.models.Pendonor
 import com.elf.donordarah.models.User
 import com.elf.donordarah.utils.ArrayResponse
@@ -24,6 +25,7 @@ interface UserContract{
     fun profile(token: String, listener: SingleResponse<User>)
     fun updateUser(token: String, user: User, listener: SingleResponse<User>)
     fun updatePhoto(token: String, image: String, listener: SingleResponse<User>)
+    fun chart(token: String, listener: ArrayResponse<Chart>)
 }
 
 class UserRepository (private val api : ApiService) : UserContract{
@@ -146,6 +148,27 @@ class UserRepository (private val api : ApiService) : UserContract{
                     else -> listener.onFailure(Error(response.message()))
                 }
             }
+        })
+    }
+
+    override fun chart(token: String, listener: ArrayResponse<Chart>) {
+        api.chart(token).enqueue(object : Callback<WrappedListResponse<Chart>>{
+            override fun onFailure(call: Call<WrappedListResponse<Chart>>, t: Throwable) {
+                listener.onFailure(Error(t.message))
+            }
+
+            override fun onResponse(
+                call: Call<WrappedListResponse<Chart>>,
+                response: Response<WrappedListResponse<Chart>>
+            ) {
+                when{
+                    response.isSuccessful -> listener.onSuccess(response.body()!!.data)
+                    else -> listener.onFailure(Error(response.message()))
+
+                }
+
+            }
+
         })
     }
 }

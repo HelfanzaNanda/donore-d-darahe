@@ -10,6 +10,7 @@ import androidx.lifecycle.Observer
 import coil.api.load
 import com.elf.donordarah.R
 import com.elf.donordarah.models.User
+import com.elf.donordarah.ui.chart.ChartActivity
 import com.elf.donordarah.ui.login.LoginActivity
 import com.elf.donordarah.utils.Constants
 import com.elf.donordarah.utils.ext.gone
@@ -32,6 +33,7 @@ class ProfileFragment : Fragment(R.layout.fragment_profile){
         super.onViewCreated(view, savedInstanceState)
         logout()
         openPix()
+        goToChart()
         observe()
         currentUser()
         updateUser()
@@ -77,6 +79,7 @@ class ProfileFragment : Fragment(R.layout.fragment_profile){
     private fun handleLoading(state: Boolean) {
         requireView().btn_logout.isEnabled = !state
         requireView().btn_foto.isEnabled = !state
+        requireView().btn_to_chart.isEnabled = !state
         requireView().fab_simpanProfile.isEnabled = !state
         if (state) requireView().loading.visible() else requireView().loading.gone()
     }
@@ -107,6 +110,12 @@ class ProfileFragment : Fragment(R.layout.fragment_profile){
             Pix.start(this@ProfileFragment, opt)
         }
     }
+
+    private fun goToChart(){
+        requireView().btn_to_chart.setOnClickListener {
+            startActivity(Intent(requireActivity(), ChartActivity::class.java))
+        }
+    }
     private fun currentUser() = profileViewModel.fetchCurrentUser(Constants.getToken(requireActivity()))
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
@@ -118,7 +127,6 @@ class ProfileFragment : Fragment(R.layout.fragment_profile){
                 val token = Constants.getToken(requireActivity())
                 profileViewModel.updatePhoto(token, it[0])
             }
-            println(returnValue)
         }
     }
 }

@@ -4,6 +4,7 @@ import android.app.Application
 import com.elf.donordarah.repositories.*
 import com.elf.donordarah.ui.add_edit_donor.AddEditDonorViewModel
 import com.elf.donordarah.ui.add_edit_submission.AddEditSubmissionViewModel
+import com.elf.donordarah.ui.chart.ChartViewModel
 import com.elf.donordarah.ui.information.InformationViewModel
 import com.elf.donordarah.ui.login.LoginViewModel
 import com.elf.donordarah.ui.main.donor.DonorViewModel
@@ -60,5 +61,6 @@ val viewModelModules = module {
     viewModel { SubmissionViewModel(get()) }
     viewModel { AddEditSubmissionViewModel(get()) }
     viewModel { AddEditDonorViewModel(get()) }
+    viewModel { ChartViewModel(get()) }
 
 }

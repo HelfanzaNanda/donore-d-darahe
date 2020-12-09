@@ -29,6 +29,11 @@ interface ApiService {
         @Header("Authorization") token : String
     ) : Call<WrappedResponse<User>>
 
+    @GET("api/chart")
+    fun chart(
+        @Header("Authorization") token : String
+    ) : Call<WrappedListResponse<Chart>>
+
     @Headers("Content-Type: application/json")
     @POST("api/user/update")
     fun updateUser(
