@@ -61,11 +61,34 @@
                     <com.google.android.material.textfield.TextInputLayout
                         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
                         app:errorEnabled="true"
+                        android:id="@+id/layout_search_ktp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <EditText
+                            android:inputType="number"
+                            android:id="@+id/search_ktp"
+                            android:hint="Nomor KTP"
+                            android:maxLength="16"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btn_cari"
+                        android:text="cari"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+                        app:errorEnabled="true"
                         android:id="@+id/layout_ktp"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content">
 
                         <EditText
+                            android:focusableInTouchMode="false"
                             android:inputType="number"
                             android:id="@+id/ktp"
                             android:hint="Nomor KTP"
@@ -82,6 +105,7 @@
                         android:layout_height="wrap_content">
 
                         <EditText
+                            android:focusableInTouchMode="false"
                             android:inputType="textPersonName"
                             android:id="@+id/nama"
                             android:hint="Nama Pendonor"
@@ -97,6 +121,7 @@
                         android:layout_height="wrap_content">
 
                         <EditText
+                            android:focusableInTouchMode="false"
                             android:id="@+id/alamat"
                             android:hint="Alamat, Desa, Kecamatan,Kota/Kabupaten "
                             android:fontFamily="sans-serif-light"
@@ -105,24 +130,22 @@
                             android:layout_height="100dp" />
                     </com.google.android.material.textfield.TextInputLayout>
 
-                    <LinearLayout
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+                        app:errorEnabled="true"
+                        android:id="@+id/layout_jenis_kelamin"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical">
+                        android:layout_height="wrap_content">
 
-                        <TextView
+                        <EditText
+                            android:hint="jenis kelamin"
+                            android:focusableInTouchMode="false"
                             android:id="@+id/jenis_kelamin"
-                            android:text="Jenis Kelamin"
-                            android:layout_marginLeft="4dp"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content" />
-                        <Spinner
+                            android:fontFamily="sans-serif-light"
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:id="@+id/spinJkl"
-                            android:entries="@array/jenis_kelamin"/>
+                            android:layout_height="wrap_content" />
+                    </com.google.android.material.textfield.TextInputLayout>
 
-                    </LinearLayout>
 
                     <com.google.android.material.textfield.TextInputLayout
                         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
@@ -132,6 +155,7 @@
                         android:layout_height="wrap_content">
 
                         <EditText
+                            android:focusableInTouchMode="false"
                             android:id="@+id/tempat_lahir"
                             android:hint="Tempat Lahir"
                             android:fontFamily="sans-serif-light"
@@ -158,23 +182,24 @@
                             android:focusable="false"/>
                     </com.google.android.material.textfield.TextInputLayout>
 
-                    <LinearLayout
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+                        app:errorEnabled="true"
+                        android:id="@+id/layout_pekerjaan"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical">
+                        android:layout_height="wrap_content">
 
-                        <TextView
-                            android:text="Pekerjaan"
-                            android:layout_marginStart="4dp"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content" />
-                        <Spinner
+                        <EditText
+                            android:id="@+id/pekerjaan"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:id="@+id/pekerjaan"
-                            android:entries="@array/list_pekerjaan"/>
+                            android:fontFamily="sans-serif-light"
+                            android:hint="Pekerjaan"
+                            android:clickable="true"
+                            android:focusableInTouchMode="false"
+                            android:focusable="false"/>
+                    </com.google.android.material.textfield.TextInputLayout>
 
-                    </LinearLayout>
 
                     <com.google.android.material.textfield.TextInputLayout
                         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
@@ -184,31 +209,30 @@
                         android:layout_height="wrap_content">
 
                         <EditText
+                            android:focusableInTouchMode="false"
                             android:id="@+id/nama_ibu"
                             android:hint="Nama Ibu"
                             android:fontFamily="sans-serif-light"
                             android:inputType="textPersonName|textCapWords"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content" />
+                    </com.google.android.material.textfield.TextInputLayout>
 
-                        <LinearLayout
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+                        app:errorEnabled="true"
+                        android:id="@+id/layout_status_nikah"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <EditText
+                            android:focusableInTouchMode="false"
+                            android:id="@+id/status_nikah"
+                            android:hint="Status Nikah"
+                            android:fontFamily="sans-serif-light"
+                            android:inputType="textPersonName|textCapWords"
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="vertical">
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginLeft="4dp"
-                                android:text="Status Nikah" />
-
-                            <Spinner
-                                android:id="@+id/status_nikah"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:entries="@array/list_status" />
-
-                        </LinearLayout>
+                            android:layout_height="wrap_content" />
                     </com.google.android.material.textfield.TextInputLayout>
 
                     <com.google.android.material.textfield.TextInputLayout
@@ -226,6 +250,8 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content" />
                     </com.google.android.material.textfield.TextInputLayout>
+
+
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -245,23 +271,21 @@
 
                     </LinearLayout>
 
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical">
+<!--                    <com.google.android.material.textfield.TextInputLayout-->
+<!--                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"-->
+<!--                        app:errorEnabled="true"-->
+<!--                        android:id="@+id/layout_goldar"-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="wrap_content">-->
 
-                        <TextView
-                            android:text="Rhesus"
-                            android:layout_marginStart="4dp"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content" />
-                        <Spinner
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:id="@+id/rhesus"
-                            android:entries="@array/list_rhesus"/>
+<!--                        <EditText-->
+<!--                            android:inputType="phone"-->
+<!--                            android:id="@+id/gol_dar"-->
+<!--                            android:hint="GolDar"-->
+<!--                            android:layout_width="match_parent"-->
+<!--                            android:layout_height="wrap_content" />-->
+<!--                    </com.google.android.material.textfield.TextInputLayout>-->
 
-                    </LinearLayout>
                 </LinearLayout>
 
             </com.google.android.material.card.MaterialCardView>

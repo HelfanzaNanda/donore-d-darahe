@@ -13,7 +13,6 @@ import com.elf.donordarah.ui.main.schedulle.SchedulleViewModel
 import com.elf.donordarah.ui.main.stock.StockViewModel
 import com.elf.donordarah.ui.news.NewsViewModel
 import com.elf.donordarah.ui.register.RegisterViewModel
-import com.elf.donordarah.ui.submission.SubmissionActivity
 import com.elf.donordarah.ui.submission.SubmissionViewModel
 import com.elf.donordarah.webservices.ApiClient
 import org.koin.android.ext.koin.androidContext
@@ -37,6 +36,7 @@ class MyApp : Application() {
 
 val retrofitModule = module {
     single { ApiClient.instance() }
+    single { ApiClient.instanceCapil() }
 }
 
 val repositoryModules = module {
@@ -46,7 +46,7 @@ val repositoryModules = module {
     factory { StockRepository(get()) }
     factory { UserRepository(get()) }
     factory { SubmissionRepository(get()) }
-    factory { DonorRepository(get()) }
+    factory { DonorRepository(get(), get()) }
 }
 
 val viewModelModules = module {

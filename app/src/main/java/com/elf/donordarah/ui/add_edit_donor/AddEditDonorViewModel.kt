@@ -5,10 +5,16 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.elf.donordarah.models.CreatePendonor
 import com.elf.donordarah.models.CreateSubmission
+import com.elf.donordarah.models.Pendonor
+import com.elf.donordarah.models.UserCapil
 import com.elf.donordarah.repositories.DonorRepository
 import com.elf.donordarah.repositories.SubmissionRepository
+import com.elf.donordarah.utils.ArrayResponse
 import com.elf.donordarah.utils.SingleLiveEvent
 import com.elf.donordarah.utils.SingleResponse
+import okhttp3.MediaType
+import okhttp3.ResponseBody
+import okio.BufferedSource
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -16,6 +22,7 @@ class AddEditDonorViewModel (private val donorRepository: DonorRepository) : Vie
     private val state : SingleLiveEvent<AddEditDonorState> = SingleLiveEvent()
     private val currentSelectedDate = MutableLiveData<String>()
     private val currentSelectedDay = MutableLiveData<String>()
+    private val userCapil = MutableLiveData<UserCapil>()
 
     private fun isLoading(b : Boolean) { state.value = AddEditDonorState.Loading(b) }
     private fun toast(m : String){ state.value = AddEditDonorState.ShowToast(m) }
@@ -92,8 +99,27 @@ class AddEditDonorViewModel (private val donorRepository: DonorRepository) : Vie
         return true
     }
 
+    fun fetchUser(nik : String){
+        isLoading(true)
+        donorRepository.getUser(nik, object : SingleResponse<UserCapil>{
+            override fun onSuccess(data: UserCapil?) {
+                isLoading(false)
+                data?.let {
+                    userCapil.postValue(it)
+                }
+            }
+
+            override fun onFailure(err: Error?) {
+                isLoading(false)
+                err?.let { toast(it.message.toString()) }
+            }
+
+        })
+    }
+
     fun listenToCurrentDate() = currentSelectedDate
     fun listenToCurrentDay() = currentSelectedDay
+    fun listenToPendonor() = userCapil
     fun listenToState() = state
 }
 

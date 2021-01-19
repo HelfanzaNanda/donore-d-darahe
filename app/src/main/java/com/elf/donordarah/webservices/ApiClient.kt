@@ -9,6 +9,7 @@ import java.util.concurrent.TimeUnit
 class ApiClient {
     companion object {
         private var retrofit: Retrofit? = null
+        private var retrofitCapil : Retrofit? = null
 
         private val opt = OkHttpClient.Builder().apply {
             connectTimeout(30, TimeUnit.SECONDS)
@@ -30,6 +31,20 @@ class ApiClient {
             }
         }
 
+        private fun getClientCapil() : Retrofit {
+            return if(retrofitCapil == null){
+                retrofitCapil = Retrofit.Builder().apply {
+                    baseUrl(Constants.ENDPOINTCAPIL)
+                    client(opt)
+                    addConverterFactory(GsonConverterFactory.create())
+                }.build()
+                retrofitCapil!!
+            }else{
+                retrofitCapil!!
+            }
+        }
+
         fun instance() = getClient().create(ApiService::class.java)
+        fun instanceCapil() = getClientCapil().create(CapilApiService::class.java)
     }
 }

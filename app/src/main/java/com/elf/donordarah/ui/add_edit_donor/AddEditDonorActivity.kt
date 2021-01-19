@@ -2,19 +2,21 @@ package com.elf.donordarah.ui.add_edit_donor
 
 import android.annotation.SuppressLint
 import android.app.DatePickerDialog
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.DatePicker
 import androidx.appcompat.app.AlertDialog
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import com.elf.donordarah.R
 import com.elf.donordarah.models.CreatePendonor
 import com.elf.donordarah.models.Pendonor
+import com.elf.donordarah.models.UserCapil
 import com.elf.donordarah.utils.Constants
 import com.elf.donordarah.utils.ext.toast
 import kotlinx.android.synthetic.main.activity_add_edit_donor.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import java.util.*
+
 
 class AddEditDonorActivity : AppCompatActivity(), DatePickerDialog.OnDateSetListener {
     private val addEditDonorViewModel :AddEditDonorViewModel by viewModel()
@@ -25,11 +27,13 @@ class AddEditDonorActivity : AppCompatActivity(), DatePickerDialog.OnDateSetList
         openDatePicker()
         observe()
         createOrUpdate()
+        searchNik()
     }
 
     private fun observe() {
         observeState()
         observeCurrentDate()
+        observePendonor()
     }
 
     private fun openDatePicker(){
@@ -48,6 +52,28 @@ class AddEditDonorActivity : AppCompatActivity(), DatePickerDialog.OnDateSetList
     private fun setCalendarValue(calendar: Calendar) = addEditDonorViewModel.setCurrentDate(calendar)
     private fun observeState() = addEditDonorViewModel.listenToState().observe(this, Observer { handleUiState(it) })
     private fun observeCurrentDate() = addEditDonorViewModel.listenToCurrentDate().observe(this, Observer { handleCurrentDate(it) })
+    private fun observePendonor() = addEditDonorViewModel.listenToPendonor().observe(this, Observer { handlePendonor(it) })
+
+    private fun handlePendonor(userCapil: UserCapil?) {
+        userCapil?.let {
+            ktp.setText(it.nik)
+            nama.setText(it.namaLengkap)
+            alamat.setText(it.alamat)
+            jenis_kelamin.setText(it.jenisKelamin)
+            tempat_lahir.setText(it.tempatLahir)
+            tanggal_lahir.setText(it.tanggalLahir)
+            pekerjaan.setText(it.pekerjaan)
+            nama_ibu.setText(it.namaIbu)
+            status_nikah.setText(it.statusKawin)
+            when{
+                it.golDar!!.equals("TIDAK TAHU") -> gol_dar.setSelection(0)
+                it.golDar!!.equals("A") -> gol_dar.setSelection(1)
+                it.golDar!!.equals("B") -> gol_dar.setSelection(2)
+                it.golDar!!.equals("O") -> gol_dar.setSelection(3)
+                it.golDar!!.equals("AB") -> gol_dar.setSelection(4)
+            }
+        }
+    }
 
     private fun handleUiState(state: AddEditDonorState?) {
         state?.let {
@@ -124,21 +150,19 @@ class AddEditDonorActivity : AppCompatActivity(), DatePickerDialog.OnDateSetList
         val ktp = ktp.text.toString().trim()
         val nama = nama.text.toString().trim()
         val address = alamat.text.toString().trim()
-        val gender = spinJkl.selectedItem
+        val gender = jenis_kelamin.text.toString().trim()
         val place = tempat_lahir.text.toString().trim()
         val ttl = tanggal_lahir.text.toString().trim()
-        val work = pekerjaan.selectedItem
+        val work = pekerjaan.text.toString().trim()
         val motherName = nama_ibu.text.toString().trim()
-        val status = status_nikah.selectedItem
+        val status = status_nikah.text.toString().trim()
         val phone = phone.text.toString().trim()
         val goldar = gol_dar.selectedItem
-        val rhesus = rhesus.selectedItem
 
-        val createPendonor = CreatePendonor(ktp = ktp, nama = nama, address = address, gender = gender.toString(),
-            place_of_birth = place, date_of_birth = ttl, working = work.toString(), mother_name = motherName,
-            status = status.toString(), phone = phone,
-            blood_type = if (goldar == "tidak tahu")  null else goldar.toString(),
-            rhesus = if (rhesus == "tidak tahu")  null else rhesus.toString())
+        val createPendonor = CreatePendonor(ktp = ktp, nama = nama, address = address, gender = gender,
+            place_of_birth = place, date_of_birth = ttl, working = work, mother_name = motherName,
+            status = status, phone = phone,
+            blood_type = if (goldar == "tidak tahu")  null else goldar.toString())
         return createPendonor
     }
 
@@ -155,6 +179,18 @@ class AddEditDonorActivity : AppCompatActivity(), DatePickerDialog.OnDateSetList
             phone.setText(it.phone)
         }
     }
+
+    private fun searchNik(){
+        btn_cari.setOnClickListener {
+            val nik = search_ktp.text.toString().trim()
+            if (nik.isNullOrEmpty()){
+                toast("nik tidak boleh kosong")
+            }else{
+                addEditDonorViewModel.fetchUser(nik)
+            }
+        }
+    }
+
 
 
     private fun handleCurrentDate(s: String?) = setTextOfDateField(s)

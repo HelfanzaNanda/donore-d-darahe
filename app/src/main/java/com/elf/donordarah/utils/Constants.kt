@@ -17,6 +17,9 @@ class Constants {
     companion object{
 
         const val ENDPOINT = "https://cari-donor-darah.herokuapp.com/"
+        const val ENDPOINTCAPIL = "http://103.12.164.52:8185/ws_server/get_json/diskominfo/"
+        const val DEF_USER_ID = "kominfo"
+        const val DEF_PASSWORD = "123456"
 
         fun getRole(c : Context) : String {
             val s = c.getSharedPreferences("USER", MODE_PRIVATE)

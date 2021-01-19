@@ -26,6 +26,7 @@
 
         <Button
             android:text="open grafik anda"
+            android:visibility="gone"
             android:id="@+id/btn_to_chart"
             android:layout_below="@id/btn_foto"
             android:layout_width="wrap_content"
@@ -66,6 +67,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
+
             <ImageView
                 android:src="@drawable/ic_email_black"
                 android:layout_width="70dp"
@@ -122,6 +124,7 @@
                 android:layout_width="70dp"
                 android:layout_height="50dp"
                 android:layout_weight="1"/>
+
             <EditText
                 android:enabled="false"
                 android:hint="Role"

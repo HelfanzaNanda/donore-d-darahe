@@ -4,6 +4,7 @@ import com.elf.donordarah.models.*
 import com.google.gson.annotations.SerializedName
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
+import okhttp3.ResponseBody
 import retrofit2.Call
 import retrofit2.http.*
 
@@ -70,6 +71,7 @@ interface ApiService {
         @Header("Authorization") token : String
     ) : Call<WrappedListResponse<Submission>>
 
+
     @Multipart
     @POST("api/submission/add")
     fun createSubmission(
@@ -114,3 +116,17 @@ data class WrappedListResponse<T>(
     @SerializedName("status") var status : Boolean?,
     @SerializedName("data") var data : List<T>?
 )
+
+interface CapilApiService {
+
+//    @GET("http://103.12.164.52:8185/ws_server/get_json/diskominfo/NEWNIK?USER_ID=kominfo&PASSWORD=123456&NIK={nik}")
+//    fun getUser(
+//        @Path("nik") nik : Int
+//    ) : Call<WrappedNik<Pendonor>>
+
+    @POST("NEWNIK")
+    fun getUser(@Query("USER_ID") userId : String,
+                @Query("PASSWORD") password : String,
+                @Query("NIK") nik : String
+    ) : Call<ResponseBody>
+}

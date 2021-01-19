@@ -45,7 +45,7 @@ class HomeFragment : Fragment(R.layout.fragment_home){
     }
 
     private fun checkRole(){
-        if (role() == "Pendonor"){
+        if (role() == "pendonor"){
             requireView().link_pengajuan.setOnClickListener {
                 requireActivity().alertBasic("anda bukan instansi")
             }
